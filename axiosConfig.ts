@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosHeaders } from "axios";
 import Cookies from "js-cookie";
 
 const instance = axios.create({
-  baseURL: "https://manage-inventory.onrender.com/api/v1",
+  baseURL: "https://book-store-js-backend.onrender.com/api/v1",
 });
 
 instance.defaults.withCredentials = true;

@@ -52,7 +52,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
           owner: book.owner,
           name: book.name,
           price: book.price,
-          imgURL: `https://manage-inventory.onrender.com/${book.imgURL}`,
+          imgURL: `https://book-store-js-backend.onrender.com/${book.imgURL}`,
           description: book.description,
         };
       });

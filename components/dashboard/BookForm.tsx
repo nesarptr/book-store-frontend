@@ -86,7 +86,7 @@ export default function BookForm({ adminData }: BookFormProps) {
             id: res.data._id,
             description: res.data.description,
             name: res.data.name,
-            imgURL: `https://manage-inventory.onrender.com/${res.data.imgURL}`,
+            imgURL: `https://book-store-js-backend.onrender.com/${res.data.imgURL}`,
             price: res.data.price,
             owner: res.data.owner,
           })
@@ -98,7 +98,7 @@ export default function BookForm({ adminData }: BookFormProps) {
             id: res.data.data._id,
             description: res.data.data.description,
             name: res.data.data.name,
-            imgURL: `https://manage-inventory.onrender.com/${res.data.data.imgURL}`,
+            imgURL: `https://book-store-js-backend.onrender.com/${res.data.data.imgURL}`,
             price: res.data.data.price,
             owner: res.data.data.owner,
           })
