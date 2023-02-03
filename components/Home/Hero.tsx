@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div>
-        <h2>Bicycle Builder</h2>
+        <h2>Book Store</h2>
         <p>
           We Provide Best Quality Books. Our book store is the {"World's"} best
           book shop. Get the newest and top selling books all over the World.

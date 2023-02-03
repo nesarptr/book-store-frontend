@@ -19,9 +19,15 @@ const orderSlice = createSlice({
     populate: (state, { payload: orderItems }: PayloadAction<OrderModel[]>) => {
       state.order = orderItems;
     },
+    changeStatus: (state, { payload: orderId }: PayloadAction<string>) => {
+      const orderItemInd = state.order.findIndex(
+        (order) => order.id == orderId
+      );
+      state.order[orderItemInd].isPaid = true;
+    },
   },
 });
 
-export const { populate } = orderSlice.actions;
+export const { populate, changeStatus } = orderSlice.actions;
 
 export default orderSlice.reducer;

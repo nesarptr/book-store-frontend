@@ -6,8 +6,11 @@ import { useStripe, useElements } from "@stripe/react-stripe-js";
 import axios from "../../axiosConfig";
 
 import styles from "./CheckoutForm.module.css";
+import { useAppDispatch } from "../../store/hook";
+import { changeStatus } from "../../store/order-slice";
 
 export default function CheckoutForm() {
+  const dispatch = useAppDispatch();
   const router = useRouter();
   const stripe = useStripe();
   const elements = useElements();
@@ -38,7 +41,14 @@ export default function CheckoutForm() {
     if (error?.type === "card_error" || error?.type === "validation_error") {
       setMessage(error?.message as string);
     } else if (paymentIntent && paymentIntent.status === "succeeded") {
-      axios.put(`/shop/pay/${paymentIntent.id}`).catch((e) => console.error(e));
+      axios
+        .put(`/shop/pay/${paymentIntent.id}`)
+        .then((res) => {
+          if (res.status === 200) {
+            dispatch(changeStatus(res.data.id));
+          }
+        })
+        .catch((e) => console.error(e));
       router.push("/orders");
     } else {
       setMessage("An unexpected error occured.");
